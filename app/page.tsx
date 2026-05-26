@@ -14,6 +14,7 @@ import {
   Eye,
   EyeOff,
   Gauge,
+  Github,
   History,
   KeyRound,
   Layers,
@@ -75,6 +76,7 @@ const maxQuestionLength = 2000;
 const maxContextLength = 4000;
 const historyStorageKey = "all-for-one.history.v1";
 const maxHistoryItems = 80;
+const githubUrl = "https://github.com/yuriyshu88-tech/All-for-One";
 
 const progressPhases = [
   {
@@ -485,7 +487,10 @@ export default function Home() {
             <span>历史记录</span>
             <strong>{history.length}</strong>
           </button>
-          <div className="user-dot">G</div>
+          <a className="github-link" href={githubUrl} rel="noreferrer" target="_blank" title="查看 GitHub 项目">
+            <Github size={18} />
+            <span>GitHub</span>
+          </a>
         </header>
 
         {isHistoryOpen ? (
