@@ -219,12 +219,7 @@ const modelMeta: Record<string, { icon: ReactNode; role: string }> = {
 };
 
 function getInitialProvider(): "desktop" | "openai" {
-  if (typeof window === "undefined") {
-    return "desktop";
-  }
-
-  const host = window.location.hostname;
-  return host === "localhost" || host === "127.0.0.1" ? "desktop" : "openai";
+  return "openai";
 }
 
 function isHistoryEntry(item: unknown): item is HistoryEntry {
@@ -267,6 +262,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [provider, setProvider] = useState<"desktop" | "openai">(getInitialProvider);
+  const [useCustomApiKey, setUseCustomApiKey] = useState(false);
   const [apiKey, setApiKey] = useState("");
   const [showApiKey, setShowApiKey] = useState(false);
   const [progressStep, setProgressStep] = useState(0);
@@ -390,6 +386,7 @@ export default function Home() {
     setIsContextOpen(Boolean(entry.context));
     setSelected(entry.selected);
     setProvider(entry.provider);
+    setUseCustomApiKey(false);
     setResult(entry.result);
     setError("");
     setIsLoading(false);
@@ -430,7 +427,7 @@ export default function Home() {
       question: question.trim(),
       context: context.trim(),
       selected: [...selected],
-      provider,
+      provider: "openai" as const,
     };
 
     try {
@@ -443,8 +440,8 @@ export default function Home() {
           question,
           context,
           skillIds: selected,
-          provider,
-          apiKey: provider === "openai" ? apiKey : undefined,
+          provider: "openai",
+          apiKey: useCustomApiKey ? apiKey : undefined,
         }),
       });
 
@@ -480,7 +477,7 @@ export default function Home() {
           </div>
           <div className="runtime-pill">
             <Terminal size={15} />
-            <span>{provider === "desktop" ? "本机 Codex" : "API Key"}</span>
+            <span>{useCustomApiKey ? "自填 API Key" : "DeepSeek V4 Pro"}</span>
             <strong>{isLoading ? "推演中" : "就绪"}</strong>
           </div>
           <button className="history-toggle" type="button" onClick={() => setIsHistoryOpen((current) => !current)}>
@@ -529,7 +526,7 @@ export default function Home() {
                       <span>{formatHistoryTime(entry.createdAt)}</span>
                       <strong>{entry.question}</strong>
                       <small>
-                        {entry.selected.length} 个视角 · {entry.provider === "desktop" ? "本机 Codex" : entry.result.model}
+                        {entry.selected.length} 个视角 · {entry.result.model}
                       </small>
                     </button>
                     <button type="button" onClick={() => deleteHistoryEntry(entry.id)} title="删除这条历史">
@@ -590,19 +587,25 @@ export default function Home() {
 
           <div className="provider-row">
             <button
-              className={provider === "desktop" ? "provider-card active" : "provider-card"}
+              className={!useCustomApiKey ? "provider-card active" : "provider-card"}
               type="button"
-              onClick={() => setProvider("desktop")}
-              title="默认调用 Codex 桌面版"
+              onClick={() => {
+                setProvider("openai");
+                setUseCustomApiKey(false);
+              }}
+              title="默认使用服务端配置的 DeepSeek V4 Pro"
             >
               <span className="radio-dot" />
-              <strong>调用本机 Codex（默认）</strong>
+              <strong>默认模型 DeepSeek V4 Pro</strong>
               <Terminal size={18} />
             </button>
             <button
-              className={provider === "openai" ? "provider-card active" : "provider-card"}
+              className={useCustomApiKey ? "provider-card active" : "provider-card"}
               type="button"
-              onClick={() => setProvider("openai")}
+              onClick={() => {
+                setProvider("openai");
+                setUseCustomApiKey(true);
+              }}
               title="使用临时填写的 OpenAI API Key"
             >
               <span className="radio-dot" />
@@ -612,15 +615,15 @@ export default function Home() {
             <div className={provider === "openai" ? "api-input visible" : "api-input"}>
               <KeyRound size={17} />
               <input
-                disabled={provider !== "openai"}
+                disabled={!useCustomApiKey}
                 value={apiKey}
                 onChange={(event) => setApiKey(event.target.value)}
-                placeholder={provider === "openai" ? "输入你的 API Key" : "本机模式无需填写"}
+                placeholder={useCustomApiKey ? "输入你的 API Key" : "默认模型无需填写"}
                 type={showApiKey ? "text" : "password"}
               />
               <button
                 aria-label={showApiKey ? "隐藏 API Key" : "显示 API Key"}
-                disabled={provider !== "openai"}
+                disabled={!useCustomApiKey}
                 onClick={() => setShowApiKey((current) => !current)}
                 title={showApiKey ? "隐藏 API Key" : "显示 API Key"}
                 type="button"
@@ -725,7 +728,7 @@ export default function Home() {
             <div className="result-body">
               <article className="host-result">
                 <div className="result-source">
-                  {result.provider === "desktop" ? "Codex 桌面版" : result.model}
+                  {result.model}
                 </div>
                 <MarkdownText text={result.summary} structured />
               </article>
