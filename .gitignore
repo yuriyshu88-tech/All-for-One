@@ -1,0 +1,11 @@
+.next
+node_modules
+.env
+.env.local
+public/avatars/
+screens/
+tsconfig.tsbuildinfo
+.DS_Store
+npm-debug.log*
+pnpm-lock.yaml
+yarn.lock

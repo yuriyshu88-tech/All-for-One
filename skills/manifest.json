@@ -1,0 +1,213 @@
+[
+  {
+    "id": "host",
+    "category": "host",
+    "name": "All for One Host",
+    "shortName": "Host",
+    "role": "Neutral moderator who extracts consensus, conflict, blind spots, and next actions.",
+    "sourceUrl": "local",
+    "promptFile": "host.md",
+    "enabledByDefault": false,
+    "isHost": true
+  },
+  {
+    "id": "jobs",
+    "category": "sage",
+    "name": "Steve Jobs Lens",
+    "shortName": "Jobs",
+    "role": "Product taste, simplicity, focus, narrative, and user experience.",
+    "sourceUrl": "https://github.com/alchaincyf/steve-jobs-skill",
+    "promptFile": "jobs.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "qiushi",
+    "category": "sage",
+    "name": "Qiushi Lens",
+    "shortName": "Qiushi",
+    "role": "Investigation, evidence, main contradiction, practice, and reality testing.",
+    "sourceUrl": "https://github.com/HughYau/qiushi-skill",
+    "promptFile": "qiushi.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "feynman",
+    "category": "sage",
+    "name": "Feynman Lens",
+    "shortName": "Feynman",
+    "role": "Clarity, explanation, curiosity, and foundational understanding.",
+    "sourceUrl": "https://github.com/alchaincyf/feynman-skill",
+    "promptFile": "feynman.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "munger",
+    "category": "sage",
+    "name": "Munger Lens",
+    "shortName": "Munger",
+    "role": "Mental models, inversion, incentives, mistakes, and worldly wisdom.",
+    "sourceUrl": "https://github.com/alchaincyf/munger-skill",
+    "promptFile": "munger.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "musk",
+    "category": "sage",
+    "name": "Musk Lens",
+    "shortName": "Musk",
+    "role": "First principles, engineering constraints, speed, and scale.",
+    "sourceUrl": "https://github.com/alchaincyf/elon-musk-skill",
+    "promptFile": "musk.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "taleb",
+    "category": "sage",
+    "name": "Taleb Lens",
+    "shortName": "Taleb",
+    "role": "Uncertainty, fragility, tail risk, optionality, and robustness.",
+    "sourceUrl": "https://github.com/alchaincyf/taleb-skill",
+    "promptFile": "taleb.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "naval",
+    "category": "sage",
+    "name": "Naval Lens",
+    "shortName": "Naval",
+    "role": "Leverage, judgment, wealth, happiness, and life strategy.",
+    "sourceUrl": "https://github.com/alchaincyf/naval-skill",
+    "promptFile": "naval.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "paul-graham",
+    "category": "sage",
+    "name": "Paul Graham Lens",
+    "shortName": "PG",
+    "role": "Startups, founders, product-market fit, and writing from first principles.",
+    "sourceUrl": "https://github.com/alchaincyf/paul-graham-skill",
+    "promptFile": "paul-graham.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "zhang-yiming",
+    "category": "sage",
+    "name": "Zhang Yiming Lens",
+    "shortName": "Yiming",
+    "role": "Information efficiency, product systems, organization, and long-term compounding.",
+    "sourceUrl": "https://github.com/alchaincyf/zhang-yiming-skill",
+    "promptFile": "zhang-yiming.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "buffett",
+    "category": "sage",
+    "name": "Buffett Lens",
+    "shortName": "Buffett",
+    "role": "Long-term value, moat, patience, downside protection, and capital allocation.",
+    "sourceUrl": "https://github.com/will2025btc/buffett-perspective",
+    "promptFile": "buffett.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "first-principles",
+    "category": "model",
+    "name": "第一性原理",
+    "shortName": "第一性原理",
+    "role": "把问题拆到不可再拆的事实、约束和成本，再从底层重新组合方案。",
+    "sourceUrl": "local",
+    "promptFile": "model-first-principles.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "inversion",
+    "category": "model",
+    "name": "逆向思考",
+    "shortName": "逆向思考",
+    "role": "先问如何失败、如何变差、如何犯错，再反推出该避免什么。",
+    "sourceUrl": "local",
+    "promptFile": "model-inversion.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "second-order",
+    "category": "model",
+    "name": "二阶效应",
+    "shortName": "二阶效应",
+    "role": "不只看直接结果，还看后续连锁反应、激励变化和系统回弹。",
+    "sourceUrl": "local",
+    "promptFile": "model-second-order.md",
+    "enabledByDefault": true
+  },
+  {
+    "id": "antifragile",
+    "category": "model",
+    "name": "反脆弱",
+    "shortName": "反脆弱",
+    "role": "判断方案在波动、压力和失败中是受损、稳健，还是变强。",
+    "sourceUrl": "local",
+    "promptFile": "model-antifragile.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "opportunity-cost",
+    "category": "model",
+    "name": "机会成本",
+    "shortName": "机会成本",
+    "role": "把注意力、时间、资金和情绪投入都当成稀缺资源来比较。",
+    "sourceUrl": "local",
+    "promptFile": "model-opportunity-cost.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "main-contradiction",
+    "category": "model",
+    "name": "主要矛盾",
+    "shortName": "主要矛盾",
+    "role": "找出当前阶段真正制约结果的关键冲突，避免平均用力。",
+    "sourceUrl": "local",
+    "promptFile": "model-main-contradiction.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "pareto-principle",
+    "category": "model",
+    "name": "二八法则",
+    "shortName": "二八法则",
+    "role": "找出产生大部分结果的少数关键因素，把资源集中到高杠杆动作上。",
+    "sourceUrl": "local",
+    "promptFile": "model-pareto-principle.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "occams-razor",
+    "category": "model",
+    "name": "奥卡姆剃刀",
+    "shortName": "奥卡姆剃刀",
+    "role": "在解释和方案之间，优先选择假设更少、结构更简单、可验证性更高的一项。",
+    "sourceUrl": "local",
+    "promptFile": "model-occams-razor.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "circle-of-competence",
+    "category": "model",
+    "name": "能力圈",
+    "shortName": "能力圈",
+    "role": "区分自己真正懂、部分懂和不懂的区域，避免在能力圈外做重决策。",
+    "sourceUrl": "local",
+    "promptFile": "model-circle-of-competence.md",
+    "enabledByDefault": false
+  },
+  {
+    "id": "systems-thinking",
+    "category": "model",
+    "name": "系统思考",
+    "shortName": "系统思考",
+    "role": "把问题放进关系、反馈、延迟和激励结构里观察，寻找系统杠杆点。",
+    "sourceUrl": "local",
+    "promptFile": "model-systems-thinking.md",
+    "enabledByDefault": false
+  }
+]
