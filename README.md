@@ -100,9 +100,17 @@ cp .env.example .env.local
 ```text
 OPENAI_API_KEY=sk-your-key-here
 OPENAI_MODEL=gpt-4.1-mini
+OPENAI_BASE_URL=
 ```
 
 修改 `.env.local` 后需要重启开发服务。
+
+如果使用 DeepSeek 等 OpenAI-compatible 服务，可以把 `OPENAI_BASE_URL` 设置为对应服务地址，例如：
+
+```text
+OPENAI_BASE_URL=https://api.deepseek.com
+OPENAI_MODEL=deepseek-chat
+```
 
 ## 部署到 Vercel
 
@@ -123,6 +131,7 @@ npx vercel --prod
 ```text
 OPENAI_API_KEY=sk-your-key-here
 OPENAI_MODEL=gpt-4.1-mini
+OPENAI_BASE_URL=
 ```
 
 当应用不运行在 `localhost` 时，会默认切换到 API Key 模式。

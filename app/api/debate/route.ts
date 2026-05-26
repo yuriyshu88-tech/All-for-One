@@ -60,14 +60,10 @@ function getDisplayName(skill: SkillManifestItem) {
     : skillDisplayNames[skill.id] || skill.shortName;
 }
 
-function responseText(response: OpenAI.Responses.Response) {
-  return response.output_text?.trim() || "";
-}
-
 async function askModel(client: OpenAI, model: string, system: string, user: string) {
-  const response = await client.responses.create({
+  const response = await client.chat.completions.create({
     model,
-    input: [
+    messages: [
       {
         role: "system",
         content: system,
@@ -79,7 +75,7 @@ async function askModel(client: OpenAI, model: string, system: string, user: str
     ],
   });
 
-  return responseText(response);
+  return response.choices[0]?.message.content?.trim() || "";
 }
 
 async function askProvider(options: {
@@ -309,7 +305,14 @@ export async function POST(request: Request) {
   }
 
   const apiKey = body.apiKey?.trim() || process.env.OPENAI_API_KEY;
-  const client = provider === "openai" && apiKey ? new OpenAI({ apiKey }) : undefined;
+  const baseURL = process.env.OPENAI_BASE_URL?.trim();
+  const client =
+    provider === "openai" && apiKey
+      ? new OpenAI({
+          apiKey,
+          baseURL: baseURL || undefined,
+        })
+      : undefined;
   const model = process.env.OPENAI_MODEL || "gpt-4.1-mini";
 
   if (provider === "openai" && !apiKey) {
