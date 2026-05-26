@@ -909,12 +909,12 @@ function AvatarImage({ alt, fallback, src }: { alt: string; fallback: string; sr
 
 function SagePortrait({ label }: { label: string }) {
   return (
-    <svg aria-hidden="true" className="portrait-svg" viewBox="0 0 64 64">
-      <rect height="64" rx="32" width="64" />
-      <circle cx="32" cy="19" r="10" />
-      <path d="M14 58c3.4-15 10.4-23 18-23s14.6 8 18 23" />
-      <rect className="portrait-label" height="19" rx="9.5" width="38" x="13" y="40" />
-      <text x="32" y="50">
+    <svg aria-hidden="true" className="portrait-svg" height="64" viewBox="0 0 64 64" width="64">
+      <rect fill="transparent" height="64" rx="32" width="64" />
+      <circle cx="32" cy="19" fill="rgba(255, 249, 239, 0.86)" r="10" />
+      <path d="M14 58c3.4-15 10.4-23 18-23s14.6 8 18 23" fill="rgba(255, 249, 239, 0.38)" />
+      <rect className="portrait-label" fill="rgba(34, 29, 24, 0.72)" height="19" rx="9.5" width="38" x="13" y="40" />
+      <text fill="#fff8ef" x="32" y="50">
         {label}
       </text>
     </svg>
@@ -923,17 +923,27 @@ function SagePortrait({ label }: { label: string }) {
 
 function BrandRoundtable() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 48 48">
-      <circle className="roundtable-ring" cx="24" cy="24" r="14" />
-      <circle className="roundtable-center" cx="24" cy="24" r="4.6" />
-      <circle className="roundtable-seat" cx="24" cy="5.8" r="3.3" />
-      <circle className="roundtable-seat" cx="24" cy="42.2" r="3.3" />
-      <circle className="roundtable-seat" cx="5.8" cy="24" r="3.3" />
-      <circle className="roundtable-seat" cx="42.2" cy="24" r="3.3" />
-      <circle className="roundtable-seat" cx="11.1" cy="11.1" r="3.3" />
-      <circle className="roundtable-seat" cx="36.9" cy="11.1" r="3.3" />
-      <circle className="roundtable-seat" cx="11.1" cy="36.9" r="3.3" />
-      <circle className="roundtable-seat" cx="36.9" cy="36.9" r="3.3" />
+    <svg
+      aria-hidden="true"
+      fill="none"
+      height="48"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.1"
+      viewBox="0 0 48 48"
+      width="48"
+    >
+      <circle className="roundtable-ring" cx="24" cy="24" fill="none" r="14" />
+      <circle className="roundtable-center" cx="24" cy="24" fill="currentColor" r="4.6" stroke="none" />
+      <circle className="roundtable-seat" cx="24" cy="5.8" fill="currentColor" r="3.3" stroke="none" />
+      <circle className="roundtable-seat" cx="24" cy="42.2" fill="currentColor" r="3.3" stroke="none" />
+      <circle className="roundtable-seat" cx="5.8" cy="24" fill="currentColor" r="3.3" stroke="none" />
+      <circle className="roundtable-seat" cx="42.2" cy="24" fill="currentColor" r="3.3" stroke="none" />
+      <circle className="roundtable-seat" cx="11.1" cy="11.1" fill="currentColor" r="3.3" stroke="none" />
+      <circle className="roundtable-seat" cx="36.9" cy="11.1" fill="currentColor" r="3.3" stroke="none" />
+      <circle className="roundtable-seat" cx="11.1" cy="36.9" fill="currentColor" r="3.3" stroke="none" />
+      <circle className="roundtable-seat" cx="36.9" cy="36.9" fill="currentColor" r="3.3" stroke="none" />
     </svg>
   );
 }
