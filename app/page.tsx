@@ -71,7 +71,6 @@ type HistoryEntry = {
   result: DebateResponse;
 };
 
-const sampleQuestion = "All for One 这个项目第一版应该怎么做，才能我自己真的每天愿意用？";
 const maxQuestionLength = 2000;
 const maxContextLength = 4000;
 const historyStorageKey = "all-for-one.history.v1";
@@ -257,7 +256,7 @@ function formatHistoryTime(value: string) {
 export default function Home() {
   const [skills, setSkills] = useState<Skill[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
-  const [question, setQuestion] = useState(sampleQuestion);
+  const [question, setQuestion] = useState("");
   const [context, setContext] = useState("");
   const [isContextOpen, setIsContextOpen] = useState(false);
   const [result, setResult] = useState<DebateResponse | null>(null);
