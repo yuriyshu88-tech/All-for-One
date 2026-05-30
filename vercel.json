@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "app/api/debate/route.ts": {
+      "maxDuration": 60,
+      "regions": ["hnd1"]
+    },
+    "app/api/skills/route.ts": {
+      "regions": ["hnd1"]
+    }
+  }
+}
