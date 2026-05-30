@@ -11,6 +11,7 @@ import {
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
+export const preferredRegion = "hnd1";
 
 type DebateRequest = {
   question?: string;
@@ -64,6 +65,7 @@ async function askModel(client: OpenAI, model: string, system: string, user: str
   const response = await client.chat.completions.create({
     model,
     temperature: 0.2,
+    max_tokens: 3600,
     response_format: {
       type: "json_object",
     },

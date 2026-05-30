@@ -460,7 +460,12 @@ export default function Home() {
         result: data,
       });
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : "生成失败。");
+      const message = caught instanceof Error ? caught.message : "生成失败。";
+      setError(
+        message === "Failed to fetch"
+          ? "连接后端失败。请刷新后重试；如果仍失败，可能是 Vercel 函数节点网络不稳定。"
+          : message,
+      );
     } finally {
       setIsLoading(false);
     }
